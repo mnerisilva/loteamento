@@ -247,7 +247,7 @@
                     },
                     {
                         idLocation: 'lote-002',
-                        coordinates: [-23.8125, 99.6875],
+                        coordinates: [-22.796875, 100.828125], // -22.796875, 100.828125 - antigo: [-23.8125, 99.6875]
                         pinColor: 'yellow',
                         status: [2, 'Reservado'],
                         idQuadra: '01',
@@ -536,7 +536,9 @@
           //var marker20 = L.marker([-61.5, 118.5], {icon: blueIcon}).addTo(blue);
           // marker2.valueOf()._icon.style.backgroundColor = 'green'; //or any color
          
-       
+
+
+          
           
                 
           
@@ -642,6 +644,11 @@
           
           map.flyTo([-64.75, 118], 3);
           
+          const _markerAll = document.querySelectorAll('.leaflet-marker-icon');
+            console.log(_markerAll.length)    
+            _markerAll.foreach(function(e){
+                console.log('x')
+            });           
       }
         
         function OnOffVendidos (){
@@ -735,6 +742,7 @@
 
              
     </script>
+
 
   </body>
 </html>
