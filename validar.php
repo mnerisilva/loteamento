@@ -33,7 +33,7 @@ if ($result = mysqli_query($conexao, $query)) {
         ?>
         
         <script type="text/javascript">
-           window.location = 'mapa.php';
+           window.location = 'mapa.html';
         </script>
         
         <?php

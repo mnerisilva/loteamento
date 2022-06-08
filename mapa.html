@@ -12,8 +12,8 @@
    
     <!--<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
     <script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
@@ -645,10 +645,19 @@
           map.flyTo([-64.75, 118], 3);
           
           const _markerAll = document.querySelectorAll('.leaflet-marker-icon');
-            console.log(_markerAll.length)    
-            _markerAll.foreach(function(e){
-                console.log('x')
-            });           
+            for (var i = 0; i < _markerAll.length; ++i) {
+                _markerAll[i].setAttribute('id', 'pin'+i)
+                _markerAll[i].addEventListener("click", function(e){
+                    //console.log(e.target.getAttribute('id'));
+                    let _modal;
+                    setTimeout(
+                        function(){    
+                            _modal = document.querySelector('.leaflet-popup #content span').textContent;
+                            console.log(_modal);                       
+                        }
+                    , 30)
+                });
+            }   
       }
         
         function OnOffVendidos (){
